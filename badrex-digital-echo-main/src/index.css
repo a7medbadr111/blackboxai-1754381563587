@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Modern digital store color scheme */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 32% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 32% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Gaming-inspired primary colors */
+    --primary: 268 100% 65%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 268 80% 80%;
+
+    --secondary: 217 32% 24%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 21%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 268 70% 55%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 24%;
+    --input: 217 32% 24%;
+    --ring: 268 100% 65%;
+
+    --radius: 12px;
+
+    /* Store-specific colors */
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --gold: 45 100% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(268 100% 65%) 0%, hsl(300 80% 70%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(217 32% 17%) 0%, hsl(217 32% 24%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(222 84% 4.9%) 0%, hsl(217 32% 17%) 50%, hsl(268 100% 15%) 100%);
+
+    /* Shadows & Effects */
+    --shadow-primary: 0 10px 40px -10px hsl(268 100% 65% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(268 100% 65% / 0.5);
+
+    /* Animation timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .light {
+    /* Light mode (optional alternative) */
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --primary: 268 100% 55%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/80;
+  }
+}
+
+@layer components {
+  /* Store-specific component styles */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 py-3 transition-all duration-300 shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-glow)] hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground font-medium rounded-xl px-6 py-3 transition-all duration-300 border border-border;
+  }
+
+  .card-product {
+    @apply bg-card rounded-xl border border-border p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-card)] hover:scale-105;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .hero-glow {
+    @apply before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/20 before:to-accent/20 before:blur-3xl before:-z-10;
+  }
+}
