@@ -1,0 +1,377 @@
+{
+  "general": {
+    "meta": {
+      "tags": "مُصنف \"{{ tags }}\"",
+      "page": "صفحة {{ page }}"
+    },
+    "404": {
+      "title": "غير موجود",
+      "subtext_html": "الصفحة التي تبحث عنها غير موجودة."
+    },
+    "accessibility": {
+      "skip_to_text": "انتقل إلى المحتوى",
+      "refresh_page": "اختيار تحديد ينتج عنه تحديث كامل للصفحة.",
+      "link_messages": {
+        "new_window": "يفتح في نافذة جديدة."
+      }
+    },
+    "share": {
+      "success_message": "تم نسخ الرابط إلى الحافظة"
+    }
+  },
+  "sections": {
+    "header": {
+      "menu": "القائمة",
+      "cart_count": {
+        "one": "{{ count }} عنصر",
+        "other": "{{ count }} عناصر"
+      }
+    },
+    "cart": {
+      "title": "سلة التسوق",
+      "caption": "عناصر السلة",
+      "remove_title": "إزالة {{ title }}",
+      "subtotal": "المجموع الفرعي",
+      "new_subtotal": "المجموع الفرعي الجديد",
+      "note": "تعليمات خاصة للطلب",
+      "checkout": "الدفع",
+      "empty": "سلة التسوق فارغة",
+      "cart_error": "حدث خطأ أثناء تحديث سلة التسوق. يرجى المحاولة مرة أخرى.",
+      "cart_quantity_error_html": "يمكنك إضافة [quantity] فقط من هذا العنصر إلى سلة التسوق.",
+      "taxes_and_shipping_policy_at_checkout_html": "الضرائب و<a href=\"{{ link }}\">الشحن</a> محسوبة عند الدفع",
+      "taxes_included_but_shipping_at_checkout": "الضريبة مشمولة والشحن محسوب عند الدفع",
+      "taxes_included_and_shipping_policy_html": "الضريبة مشمولة. <a href=\"{{ link }}\">الشحن</a> محسوب عند الدفع.",
+      "taxes_and_shipping_at_checkout": "الضرائب والشحن محسوبة عند الدفع",
+      "headings": {
+        "product": "المنتج",
+        "price": "السعر",
+        "total": "المجموع",
+        "quantity": "الكمية"
+      },
+      "update": "تحديث",
+      "login": {
+        "title": "لديك حساب؟",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">تسجيل الدخول</a> للدفع بشكل أسرع."
+      }
+    },
+    "footer": {
+      "payment": "طرق الدفع"
+    },
+    "featured_blog": {
+      "view_all": "عرض الكل",
+      "onboarding_title": "مقال المدونة",
+      "onboarding_content": "قدم لعملائك ملخصاً عن مقال مدونتك"
+    },
+    "featured_collection": {
+      "view_all": "عرض الكل",
+      "view_all_label": "عرض جميع المنتجات في مجموعة {{ collection_name }}"
+    },
+    "collection_list": {
+      "view_all": "عرض الكل"
+    },
+    "collection_template": {
+      "title": "المجموعة",
+      "empty": "لم يتم العثور على منتجات",
+      "use_fewer_filters_html": "استخدم فلاتر أقل أو <a class=\"{{ class }}\" href=\"{{ link }}\">إزالة الكل</a>"
+    },
+    "video": {
+      "load_video": "تحميل الفيديو: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "تحميل الشريحة",
+      "previous_slideshow": "الشريحة السابقة",
+      "next_slideshow": "الشريحة التالية",
+      "pause_slideshow": "إيقاف العرض",
+      "play_slideshow": "تشغيل العرض",
+      "carousel": "دوار",
+      "slide": "شريحة"
+    },
+    "page": {
+      "title": "عنوان الصفحة"
+    }
+  },
+  "localization": {
+    "country_label": "البلد/المنطقة",
+    "language_label": "اللغة",
+    "update_language": "تحديث اللغة",
+    "update_country": "تحديث البلد/المنطقة"
+  },
+  "customer": {
+    "account": {
+      "title": "الحساب",
+      "details": "تفاصيل الحساب",
+      "view_addresses": "عرض العناوين",
+      "return": "العودة إلى تفاصيل الحساب"
+    },
+    "account_fallback": "الحساب",
+    "activate_account": {
+      "title": "تفعيل الحساب",
+      "subtext": "أنشئ كلمة مرور لتفعيل حسابك.",
+      "password": "كلمة المرور",
+      "password_confirm": "تأكيد كلمة المرور",
+      "submit": "تفعيل الحساب",
+      "cancel": "رفض الدعوة"
+    },
+    "addresses": {
+      "title": "العناوين",
+      "default": "افتراضي",
+      "add_new": "إضافة عنوان جديد",
+      "edit_address": "تعديل العنوان",
+      "first_name": "الاسم الأول",
+      "last_name": "اسم العائلة",
+      "company": "الشركة",
+      "address1": "العنوان 1",
+      "address2": "العنوان 2",
+      "city": "المدينة",
+      "country": "البلد/المنطقة",
+      "province": "المحافظة",
+      "zip": "الرمز البريدي",
+      "phone": "الهاتف",
+      "set_default": "تعيين كعنوان افتراضي",
+      "add": "إضافة عنوان",
+      "update": "تحديث العنوان",
+      "cancel": "إلغاء",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "delete_confirm": "هل أنت متأكد من رغبتك في حذف هذا العنوان؟"
+    },
+    "log_in": "تسجيل الدخول",
+    "log_out": "تسجيل الخروج",
+    "login_page": {
+      "cancel": "إلغاء",
+      "create_account": "إنشاء حساب",
+      "email": "البريد الإلكتروني",
+      "forgot_password": "نسيت كلمة المرور؟",
+      "guest_continue": "متابعة",
+      "guest_title": "متابعة كضيف",
+      "password": "كلمة المرور",
+      "title": "تسجيل الدخول",
+      "sign_in": "تسجيل الدخول",
+      "submit": "تسجيل الدخول"
+    },
+    "orders": {
+      "title": "تاريخ الطلبات",
+      "order_number": "الطلب",
+      "order_number_link": "رقم الطلب {{ number }}",
+      "date": "التاريخ",
+      "payment_status": "حالة الدفع",
+      "fulfillment_status": "حالة التنفيذ",
+      "total": "المجموع",
+      "none": "لم تقم بوضع أي طلبات بعد."
+    },
+    "recover_password": {
+      "title": "إعادة تعيين كلمة المرور",
+      "subtext": "سنرسل لك بريداً إلكترونياً لإعادة تعيين كلمة المرور",
+      "success": "لقد أرسلنا لك بريداً إلكترونياً يحتوي على رابط لتحديث كلمة المرور."
+    },
+    "register": {
+      "title": "إنشاء حساب",
+      "first_name": "الاسم الأول",
+      "last_name": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "submit": "إنشاء"
+    },
+    "reset_password": {
+      "title": "إعادة تعيين كلمة مرور الحساب",
+      "subtext": "أدخل كلمة مرور جديدة لـ {{ email }}",
+      "password": "كلمة المرور",
+      "password_confirm": "تأكيد كلمة المرور",
+      "submit": "إعادة تعيين كلمة المرور"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "إضافة إلى السلة",
+      "description": "الوصف",
+      "on_sale": "تخفيض",
+      "product_variants": "متغيرات المنتج",
+      "quantity": {
+        "label": "الكمية",
+        "input_label": "الكمية لـ {{ product }}",
+        "increase": "زيادة الكمية لـ {{ product }}",
+        "decrease": "تقليل الكمية لـ {{ product }}"
+      },
+      "price": {
+        "from_price_html": "من {{ price }}",
+        "regular_price": "السعر العادي",
+        "sale_price": "سعر التخفيض",
+        "unit_price": "سعر الوحدة"
+      },
+      "share": "مشاركة هذا المنتج",
+      "sold_out": "نفد المخزون",
+      "unavailable": "غير متوفر",
+      "vendor": "البائع",
+      "video_exit_message": "{{ title }} يفتح فيديو بملء الشاشة في نفس النافذة.",
+      "xr_button": "عرض في مساحتك",
+      "xr_button_label": "عرض في مساحتك، يحمل العنصر في نافذة الواقع المعزز",
+      "pickup_availability": {
+        "view_store_info": "عرض معلومات المتجر",
+        "check_other_stores": "فحص التوفر في متاجر أخرى",
+        "pick_up_available": "الاستلام متاح",
+        "pick_up_available_at_html": "الاستلام متاح في <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "الاستلام غير متاح حالياً في <span class=\"color-foreground\">{{ location_name }}</span>",
+        "unavailable": "تعذر تحميل توفر الاستلام",
+        "refresh": "تحديث"
+      },
+      "media": {
+        "open_media": "فتح الوسائط {{ index }} في عرض المعرض",
+        "play_model": "تشغيل عارض ثلاثي الأبعاد",
+        "play_video": "تشغيل الفيديو",
+        "gallery_viewer": "عارض المعرض",
+        "load_image": "تحميل الصورة {{ index }} في عرض المعرض",
+        "load_model": "تحميل النموذج ثلاثي الأبعاد {{ index }} في عرض المعرض",
+        "load_video": "تشغيل الفيديو {{ index }} في عرض المعرض",
+        "image_available": "الصورة {{ index }} متاحة الآن في عرض المعرض"
+      },
+      "view_full_details": "عرض التفاصيل الكاملة",
+      "include_taxes": "الضريبة مشمولة.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">الشحن</a> محسوب عند الدفع.",
+      "value_unavailable": "{{ option_value }} - غير متوفر"
+    },
+    "modal": {
+      "label": "معرض الوسائط"
+    },
+    "facets": {
+      "apply": "تطبيق",
+      "clear": "مسح",
+      "clear_all": "مسح الكل",
+      "from": "من",
+      "filter_and_sort": "تصفية وترتيب",
+      "filter_by_label": "تصفية:",
+      "filter_button": "تصفية",
+      "filters_selected": {
+        "one": "{{ count }} محدد",
+        "other": "{{ count }} محددة"
+      },
+      "max_price": "أعلى سعر هو {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} من {{ count }} منتج",
+        "other": "{{ product_count }} من {{ count }} منتجات"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} منتج",
+        "other": "{{ count }} منتجات"
+      },
+      "reset": "إعادة تعيين",
+      "sort_button": "ترتيب",
+      "sort_by_label": "ترتيب حسب:",
+      "to": "إلى",
+      "clear_filter": "مسح التصفية"
+    }
+  },
+  "templates": {
+    "search": {
+      "no_results": "لم يتم العثور على نتائج لـ \"{{ terms }}\". تحقق من الإملاء أو استخدم كلمة أو عبارة مختلفة.",
+      "results_with_count": {
+        "one": "{{ count }} نتيجة",
+        "other": "{{ count }} نتائج"
+      },
+      "title": "نتائج البحث",
+      "page": "صفحة",
+      "products": "المنتجات",
+      "search_for": "البحث عن \"{{ terms }}\"",
+      "results_with_count_and_term": {
+        "one": "تم العثور على {{ count }} نتيجة لـ \"{{ terms }}\"",
+        "other": "تم العثور على {{ count }} نتائج لـ \"{{ terms }}\""
+      }
+    },
+    "cart": {
+      "cart": "السلة"
+    },
+    "contact": {
+      "form": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "phone": "رقم الهاتف",
+        "comment": "التعليق",
+        "send": "إرسال",
+        "post_success": "شكراً لتواصلك معنا. سنعود إليك في أقرب وقت ممكن.",
+        "error_heading": "يرجى تعديل ما يلي:"
+      }
+    },
+    "404": {
+      "title": "الصفحة غير موجودة",
+      "subtext": "404"
+    }
+  },
+  "sections_custom": {
+    "hero": {
+      "trusted_badge": "موثوق من قبل أكثر من 10,000 عميل حول العالم",
+      "main_heading": "متجر المنتجات الرقمية المميزة",
+      "subheading": "وصول فوري للألعاب والبرامج والحسابات والاشتراكات المعتمدة. يتم التسليم في ثوانٍ.",
+      "instant_delivery": "تسليم فوري",
+      "verified_products": "منتجات معتمدة",
+      "five_star_support": "دعم 5 نجوم",
+      "browse_products": "تصفح المنتجات",
+      "view_featured_deals": "عرض العروض المميزة",
+      "trusted_by": "موثوق من قبل العملاء حول العالم"
+    },
+    "featured_products": {
+      "title": "المنتجات المميزة",
+      "subtitle": "منتجات رقمية مميزة مختارة بعناية مع تسليم فوري ودعم مدى الحياة",
+      "view_all": "عرض جميع المنتجات",
+      "instant": "فوري",
+      "download": "تحميل",
+      "add_to_cart": "إضافة إلى السلة",
+      "view": "عرض"
+    },
+    "trust_section": {
+      "title": "لماذا تختار متجر BadRex؟",
+      "subtitle": "نحن ملتزمون بتوفير أفضل تجربة سوق رقمي مع جودة وخدمة لا مثيل لها",
+      "ssl_secured": "محمي بـ SSL",
+      "ssl_description": "بياناتك محمية بتشفير معياري في الصناعة",
+      "instant_delivery": "تسليم فوري",
+      "instant_description": "احصل على منتجاتك الرقمية في ثوانٍ",
+      "verified_products": "منتجات معتمدة",
+      "verified_description": "جميع المنتجات مختبرة ومعتمدة قبل الإدراج",
+      "support_247": "دعم 24/7",
+      "support_description": "دعم عملاء على مدار الساعة لجميع احتياجاتك",
+      "easy_refunds": "استرداد سهل",
+      "refunds_description": "عملية استرداد بسيطة لراحة بالك",
+      "secure_payments": "مدفوعات آمنة",
+      "payments_description": "خيارات دفع آمنة متعددة لراحتك",
+      "happy_customers": "عملاء سعداء",
+      "products_delivered": "منتجات مُسلمة",
+      "customer_rating": "تقييم العملاء",
+      "uptime_guarantee": "ضمان وقت التشغيل",
+      "testimonials_title": "ماذا يقول عملاؤنا",
+      "testimonial_1": "تسليم فوري ومنتجات عالية الجودة. أنصح به بشدة!",
+      "testimonial_2": "دعم عملاء رائع ومنتجات شرعية. سأشتري مرة أخرى بالتأكيد!",
+      "testimonial_3": "أفضل سوق رقمي استخدمته. سريع وآمن وموثوق."
+    }
+  },
+  "layout": {
+    "navigation": {
+      "search": "بحث",
+      "menu": "القائمة",
+      "cart": "السلة",
+      "account": "الحساب",
+      "products": "المنتجات",
+      "categories": "الفئات",
+      "support": "الدعم",
+      "verified": "معتمد"
+    },
+    "cart": {
+      "title": "السلة",
+      "items_count": {
+        "one": "عنصر",
+        "other": "عناصر"
+      }
+    },
+    "customer": {
+      "account": "الحساب",
+      "log_out": "تسجيل الخروج"
+    },
+    "footer": {
+      "newsletter": {
+        "label": "البريد الإلكتروني",
+        "success": "شكراً للاشتراك",
+        "button_label": "اشتراك"
+      }
+    }
+  },
+  "date_formats": {
+    "month_year": "%B %Y"
+  }
+}
