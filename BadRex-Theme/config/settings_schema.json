@@ -1,0 +1,42 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "BadRex Store",
+    "theme_version": "1.0.0",
+    "theme_author": "BadRex Team"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "colors_accent_1",
+        "default": "#8B5CF6",
+        "label": "Primary Color"
+      },
+      {
+        "type": "color",
+        "id": "colors_accent_2",
+        "default": "#A855F7",
+        "label": "Secondary Color"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "assistant_n4",
+        "label": "Heading Font"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "Body Font"
+      }
+    ]
+  }
+]
