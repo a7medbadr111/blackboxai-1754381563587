@@ -1,0 +1,37 @@
+{%- if localization.available_languages.size > 1 -%}
+  <div class="language-switcher relative">
+    <details class="disclosure-has-popup" id="Details-language-switcher" data-disclosure>
+      <summary class="disclosure__toggle" aria-expanded="false" aria-controls="language-list" aria-describedby="language-switcher-label">
+        <span class="localization-selector__label caption-large text-body" id="language-switcher-label">
+          {{ 'localization.language_label' | t }}
+        </span>
+        <div class="disclosure__toggle-wrapper">
+          <span class="localization-selector__value">
+            {{ localization.language.endonym_name | capitalize }}
+          </span>
+          <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+          </svg>
+        </div>
+      </summary>
+      
+      <div class="disclosure__list-wrapper" hidden>
+        <ul class="disclosure__list list-unstyled" id="language-list" role="list">
+          {%- for language in localization.available_languages -%}
+            <li class="disclosure__item" tabindex="-1">
+              <a class="link disclosure__link caption-large disclosure__link--active focus-inset" href="#" lang="{{ language.iso_code }}" data-language-code="{{ language.iso_code }}" 
+                 {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %}>
+                {{ language.endonym_name | capitalize }}
+                {%- if language.iso_code == localization.language.iso_code -%}
+                  <svg aria-hidden="true" focusable="false" class="icon icon-checkmark" viewBox="0 0 12 9">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.35.643a.5.5 0 01.006.707L4.56 8.355a.5.5 0 01-.707.006L.146 5.854a.5.5 0 11.708-.708L4.204 7.496l6.84-6.85a.5.5 0 01.707-.003z" fill="currentColor">
+                  </svg>
+                {%- endif -%}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </details>
+  </div>
+{%- endif -%}
