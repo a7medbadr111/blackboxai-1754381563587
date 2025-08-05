@@ -1,0 +1,437 @@
+<footer class="footer bg-card border-t border-gray-600 mt-20">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      {%- comment -%} Brand Section {%- endcomment -%}
+      <div class="lg:col-span-1">
+        <a href="{{ routes.root_url }}" class="flex items-center space-x-2 mb-4">
+          <span class="text-2xl">👑</span>
+          <span class="text-xl font-bold text-gradient">{{ shop.name | default: 'BadRex Store' }}</span>
+        </a>
+        <p class="text-gray-300 mb-6">
+          Your trusted marketplace for premium digital products, games, and software. 
+          Instant delivery, verified products, lifetime support.
+        </p>
+        
+        {%- comment -%} Trust Indicators {%- endcomment -%}
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center space-x-2">
+            <span class="text-success">🛡️</span>
+            <span class="text-xs text-success">SSL Secured</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-warning">⚡</span>
+            <span class="text-xs text-warning">Instant Delivery</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-yellow-400">🏆</span>
+            <span class="text-xs text-yellow-400">Verified Products</span>
+          </div>
+        </div>
+      </div>
+
+      {%- comment -%} Quick Links {%- endcomment -%}
+      <div>
+        <h3 class="font-semibold text-white mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/collections/all" class="text-gray-300 hover:text-primary transition-colors">
+              All Products
+            </a>
+          </li>
+          <li>
+            <a href="/collections" class="text-gray-300 hover:text-primary transition-colors">
+              Categories
+            </a>
+          </li>
+          <li>
+            <a href="/collections/featured" class="text-gray-300 hover:text-primary transition-colors">
+              Featured
+            </a>
+          </li>
+          <li>
+            <a href="/collections/new" class="text-gray-300 hover:text-primary transition-colors">
+              New Arrivals
+            </a>
+          </li>
+          <li>
+            <a href="/collections/deals" class="text-gray-300 hover:text-primary transition-colors">
+              Special Deals
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {%- comment -%} Support {%- endcomment -%}
+      <div>
+        <h3 class="font-semibold text-white mb-4">Support</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/pages/support" class="text-gray-300 hover:text-primary transition-colors">
+              Help Center
+            </a>
+          </li>
+          <li>
+            <a href="/pages/contact" class="text-gray-300 hover:text-primary transition-colors">
+              Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="/pages/faq" class="text-gray-300 hover:text-primary transition-colors">
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a href="/policies/refund-policy" class="text-gray-300 hover:text-primary transition-colors">
+              Refund Policy
+            </a>
+          </li>
+          <li>
+            <a href="/policies/terms-of-service" class="text-gray-300 hover:text-primary transition-colors">
+              Terms of Service
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {%- comment -%} Newsletter & Contact {%- endcomment -%}
+      <div>
+        <h3 class="font-semibold text-white mb-4">Stay Connected</h3>
+        <p class="text-gray-300 text-sm mb-4">
+          Get notified about new products and exclusive deals.
+        </p>
+        
+        <form action="{{ routes.root_url }}contact#contact_form" method="post" id="ContactFooter" accept-charset="UTF-8" class="footer__newsletter newsletter-form">
+          <input type="hidden" name="form_type" value="customer">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="flex space-x-2 mb-6">
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="input flex-1"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="ContactFooter-error"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="ContactFooter-success"
+              {% endif %}
+              placeholder="{{ 'newsletter.label' | t }}"
+              required
+            >
+            <button type="submit" class="btn btn-primary" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+              <span class="text-sm">📧</span>
+            </button>
+          </div>
+        </form>
+
+        {%- if form.posted_successfully? -%}
+          <h3 class="newsletter-form__message newsletter-form__message--success body-small" id="ContactFooter-success" tabindex="-1" autofocus>
+            {% render 'icon-success' -%}
+            {{ 'newsletter.success' | t }}
+          </h3>
+        {%- elsif form.errors -%}
+          <div class="newsletter-form__message body-small" id="ContactFooter-error">
+            <h3 class="form__message" tabindex="-1" autofocus>
+              {% render 'icon-error' -%}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h3>
+            <ul>
+              {%- for field in form.errors -%}
+                <li>
+                  {%- if field == 'form' -%}
+                    {{ form.errors.messages[field] }}
+                  {%- else -%}
+                    <a href="#ContactFooter-{{ field }}">
+                      {{ form.errors.translated_fields[field] | capitalize }}
+                      {{ form.errors.messages[field] }}
+                    </a>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        <div class="flex items-center space-x-2 text-sm text-gray-300">
+          <span>👥</span>
+          <span>Join 10,000+ satisfied customers</span>
+        </div>
+      </div>
+    </div>
+
+    {%- comment -%} Bottom Section {%- endcomment -%}
+    <div class="border-t border-gray-600 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-300 text-sm">
+        © {{ 'now' | date: "%Y" }} {{ shop.name | default: 'BadRex Store' }}. All rights reserved.
+      </p>
+      
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a href="/policies/privacy-policy" class="text-gray-300 hover:text-primary text-sm transition-colors">
+          Privacy Policy
+        </a>
+        <a href="/policies/terms-of-service" class="text-gray-300 hover:text-primary text-sm transition-colors">
+          Terms
+        </a>
+        <a href="/policies/shipping-policy" class="text-gray-300 hover:text-primary text-sm transition-colors">
+          Shipping
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer .text-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] .footer .grid {
+    direction: rtl;
+  }
+
+  [dir="rtl"] .footer .flex {
+    flex-direction: row-reverse;
+  }
+
+  [dir="rtl"] .footer .space-x-2 > * + * {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+
+  [dir="rtl"] .footer .space-x-6 > * + * {
+    margin-left: 0;
+    margin-right: 1.5rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    },
+    {
+      "type": "brand_information",
+      "name": "t:sections.footer.blocks.brand_information.name",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.footer.blocks.brand_information.settings.header__1.content"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": true,
+          "label": "t:sections.footer.blocks.brand_information.settings.show_social.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.footer.blocks.text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Heading",
+          "label": "t:sections.footer.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "subtext",
+          "default": "<p>Share contact information, store details, and brand content with your customers.</p>",
+          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "t:sections.footer.blocks.newsletter.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Subscribe to our emails",
+          "label": "t:sections.footer.blocks.newsletter.settings.heading.label"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.footer.blocks.newsletter.settings.paragraph.content"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__1.content",
+      "info": "t:sections.footer.settings.header__1.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.newsletter_enable.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "newsletter_heading",
+      "default": "Subscribe to our emails",
+      "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__9.content",
+      "info": "t:sections.footer.settings.header__9.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_follow_on_shop",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_follow_on_shop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__2.content",
+      "info": "t:sections.footer.settings.header__2.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": true,
+      "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__3.content",
+      "info": "t:sections.footer.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__5.content",
+      "info": "t:sections.footer.settings.header__6.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__7.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_enable.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__8.content",
+      "info": "t:sections.footer.settings.header__8.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy",
+      "default": false,
+      "label": "t:sections.footer.settings.show_policy.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.footer.settings.margin_top.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "newsletter"
+      }
+    ]
+  }
+}
+{% endschema %}
