@@ -1,0 +1,77 @@
+<section class="product-page py-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      
+      <div class="product-media">
+        {%- if product.featured_media -%}
+          <img
+            src="{{ product.featured_media | image_url: width: 800 }}"
+            alt="{{ product.featured_media.alt | escape }}"
+            class="w-full h-auto rounded-lg"
+          >
+        {%- else -%}
+          <div class="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center">
+            <span class="text-gray-400 text-lg">No image available</span>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product-info">
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          {{ product.title }}
+        </h1>
+
+        {%- if product.type != blank -%}
+          <div class="mb-4">
+            <span class="badge badge-outline">{{ product.type }}</span>
+          </div>
+        {%- endif -%}
+
+        <div class="product-price mb-6">
+          {% render 'price', product: product, use_variant: true, show_badges: true %}
+        </div>
+
+        {%- form 'product', product, class: 'form', data-type: 'add-to-cart-form' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <div class="product-form__quantity mb-6">
+            <label class="form__label text-white font-medium mb-2 block">
+              {{ 'products.product.quantity.label' | t }}
+            </label>
+            <input
+              class="input w-20"
+              type="number"
+              name="quantity"
+              min="1"
+              value="1"
+            >
+          </div>
+
+          <button
+            type="submit"
+            name="add"
+            class="btn btn-primary btn-lg w-full mb-4"
+            {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+            data-add-to-cart
+          >
+            <span class="mr-2">🛒</span>
+            {%- if product.selected_or_first_available_variant.available -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        {%- if product.description != blank -%}
+          <div class="product-description">
+            <h3 class="text-xl font-semibold text-white mb-4">{{ 'products.product.description' | t }}</h3>
+            <div class="text-gray-300">
+              {{ product.description }}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
