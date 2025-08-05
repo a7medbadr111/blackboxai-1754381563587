@@ -1,0 +1,106 @@
+<section class="contact-page py-8">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+          {{ page.title | default: 'Contact Us' }}
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          Get in touch with our team. We're here to help with any questions about our digital products.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <div class="bg-card rounded-xl border border-gray-600 p-8">
+          <h2 class="text-2xl font-bold mb-6 text-white">Send us a message</h2>
+          
+          {%- form 'contact', id: 'ContactForm', class: 'contact-form' -%}
+            {%- if form.posted_successfully? -%}
+              <div class="form-status bg-success/10 border border-success/20 rounded-lg p-4 mb-6">
+                <h2 class="text-success font-semibold">
+                  {{ 'templates.contact.form.post_success' | t }}
+                </h2>
+              </div>
+            {%- endif -%}
+
+            <div class="space-y-6">
+              <div>
+                <label for="ContactForm-name" class="block text-white font-medium mb-2">
+                  {{ 'templates.contact.form.name' | t }}
+                </label>
+                <input
+                  class="input w-full"
+                  type="text"
+                  id="ContactForm-name"
+                  name="contact[name]"
+                  value="{{ form.name }}"
+                  placeholder="{{ 'templates.contact.form.name' | t }}"
+                >
+              </div>
+
+              <div>
+                <label for="ContactForm-email" class="block text-white font-medium mb-2">
+                  {{ 'templates.contact.form.email' | t }} *
+                </label>
+                <input
+                  class="input w-full"
+                  type="email"
+                  id="ContactForm-email"
+                  name="contact[email]"
+                  value="{{ form.email }}"
+                  placeholder="{{ 'templates.contact.form.email' | t }}"
+                  required
+                >
+              </div>
+
+              <div>
+                <label for="ContactForm-body" class="block text-white font-medium mb-2">
+                  {{ 'templates.contact.form.comment' | t }}
+                </label>
+                <textarea
+                  rows="6"
+                  id="ContactForm-body"
+                  class="input w-full h-32 resize-none"
+                  name="contact[body]"
+                  placeholder="Tell us about your inquiry..."
+                >{{ form.body }}</textarea>
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary w-full">
+                  {{ 'templates.contact.form.send' | t }}
+                </button>
+              </div>
+            </div>
+          {%- endform -%}
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-card rounded-xl border border-gray-600 p-8">
+            <h3 class="text-xl font-bold mb-6 text-white">Get in touch</h3>
+            
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <span class="text-primary text-xl">📧</span>
+                <div>
+                  <p class="text-white font-medium">Email</p>
+                  <p class="text-gray-300">support@badrexstore.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center space-x-3">
+                <span class="text-primary text-xl">💬</span>
+                <div>
+                  <p class="text-white font-medium">Live Chat</p>
+                  <p class="text-gray-300">Available 24/7</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
