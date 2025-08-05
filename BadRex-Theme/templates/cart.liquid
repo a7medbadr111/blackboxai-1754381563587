@@ -1,0 +1,88 @@
+<section class="cart-page py-8">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl font-bold mb-8 text-white">{{ 'sections.cart.title' | t }}</h1>
+    
+    {%- if cart == empty -%}
+      <div class="text-center py-20" data-cart-content>
+        <div class="text-6xl mb-6">🛒</div>
+        <h2 class="text-3xl font-bold mb-4 text-white">{{ 'sections.cart.empty' | t }}</h2>
+        <p class="text-gray-300 mb-8">Add some amazing digital products to get started!</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary btn-lg">Browse Products</a>
+      </div>
+    {%- else -%}
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-cart-content>
+        
+        <div class="lg:col-span-2 space-y-4">
+          {%- for item in cart.items -%}
+            <div class="bg-card rounded-xl border border-gray-600 p-6" data-line-item="{{ item.key }}">
+              <div class="flex items-center space-x-4">
+                
+                {%- if item.image -%}
+                  <img
+                    src="{{ item.image | image_url: width: 100 }}"
+                    alt="{{ item.image.alt | escape }}"
+                    class="w-20 h-20 object-cover rounded-lg"
+                  />
+                {%- else -%}
+                  <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
+                    <span class="text-gray-400 text-xs">No image</span>
+                  </div>
+                {%- endif -%}
+                
+                <div class="flex-1">
+                  <h3 class="font-semibold mb-1 text-white">{{ item.product.title }}</h3>
+                  <p class="text-sm text-gray-300">{{ item.product.type }}</p>
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                  <button type="button" class="btn btn-outline btn-sm" data-quantity-minus>-</button>
+                  <span class="w-8 text-center text-white" data-quantity-input>{{ item.quantity }}</span>
+                  <button type="button" class="btn btn-outline btn-sm" data-quantity-plus>+</button>
+                </div>
+                
+                <div class="text-right">
+                  <div class="font-bold text-primary text-lg" data-line-total>{{ item.final_line_price | money }}</div>
+                  <div class="text-sm text-gray-300">{{ item.final_price | money }} each</div>
+                </div>
+                
+                <button type="button" class="btn btn-outline btn-sm text-destructive" data-remove-item>🗑️</button>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+        
+        <div class="bg-card rounded-xl border border-gray-600 p-6 h-fit">
+          <h2 class="text-xl font-bold mb-4 text-white">Order Summary</h2>
+          
+          <div class="space-y-2 mb-4">
+            <div class="flex justify-between text-gray-300">
+              <span>Subtotal ({{ cart.item_count }} items)</span>
+              <span data-cart-subtotal>{{ cart.total_price | money }}</span>
+            </div>
+            <div class="flex justify-between text-success">
+              <span>Instant Delivery</span>
+              <span>FREE</span>
+            </div>
+          </div>
+          
+          <div class="border-t border-gray-600 pt-4 mb-6">
+            <div class="flex justify-between text-lg font-bold text-white">
+              <span>Total</span>
+              <span class="text-primary" data-cart-total>{{ cart.total_price | money }}</span>
+            </div>
+          </div>
+          
+          <form action="{{ routes.cart_url }}" method="post" novalidate class="cart">
+            <button type="submit" name="checkout" class="btn btn-primary w-full mb-4">
+              Proceed to Checkout
+            </button>
+          </form>
+          
+          <button type="button" class="btn btn-outline w-full" data-clear-cart>
+            Clear Cart
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
