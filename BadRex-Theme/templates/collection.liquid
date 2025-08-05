@@ -1,0 +1,108 @@
+<section class="collection-page py-8">
+  <div class="container mx-auto px-4">
+    
+    {%- comment -%} Collection Header {%- endcomment -%}
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+        {{ collection.title | default: 'All Products' }}
+      </h1>
+      {%- if collection.description != blank -%}
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          {{ collection.description }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Filters {%- endcomment -%}
+    <div class="bg-card rounded-xl border border-gray-600 p-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        
+        {%- comment -%} Search {%- endcomment -%}
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
+          <input
+            type="search"
+            placeholder="{{ 'layout.navigation.search' | t }}"
+            class="input pl-10 w-full"
+            data-search-input
+          />
+        </div>
+
+        {%- comment -%} Category Filter {%- endcomment -%}
+        <select class="input" data-category-filter>
+          <option value="all">All Categories</option>
+          {%- for product in collection.products -%}
+            {%- unless product.type == blank -%}
+              <option value="{{ product.type | handle }}">{{ product.type }}</option>
+            {%- endunless -%}
+          {%- endfor -%}
+        </select>
+
+        {%- comment -%} Sort By {%- endcomment -%}
+        <select class="input" data-sort-filter>
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name">Name A-Z</option>
+        </select>
+
+        {%- comment -%} Filter Button {%- endcomment -%}
+        <button class="btn btn-outline flex items-center justify-center space-x-2">
+          <span>🔧</span>
+          <span>More Filters</span>
+        </button>
+      </div>
+    </div>
+
+    {%- comment -%} Results Count {%- endcomment -%}
+    <div class="mb-6">
+      <p class="text-gray-300" data-results-count>
+        Showing {{ collection.products.size }} products
+      </p>
+    </div>
+
+    {%- comment -%} Products Grid {%- endcomment -%}
+    {%- if collection.products.size > 0 -%}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-products-grid>
+        {%- for product in collection.products -%}
+          <div data-product-item data-product-category="{{ product.type | handle }}" data-product-featured="{{ product.tags contains 'featured' }}">
+            {% render 'product-card', product: product, section_id: 'collection' %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Pagination {%- endcomment -%}
+      {%- if paginate.pages > 1 -%}
+        <div class="pagination-wrapper mt-12">
+          {% render 'pagination', paginate: paginate %}
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      {%- comment -%} Empty state {%- endcomment -%}
+      <div class="text-center py-20">
+        <div class="text-6xl mb-6">📦</div>
+        <h3 class="text-2xl font-semibold mb-2 text-white">{{ 'sections.collection_template.empty' | t }}</h3>
+        <p class="text-gray-400 mb-6">No products found in this collection.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">
+          Browse All Products
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  /* RTL Support */
+  [dir="rtl"] .collection-page .grid {
+    direction: rtl;
+  }
+
+  [dir="rtl"] .collection-page .flex {
+    flex-direction: row-reverse;
+  }
+
+  [dir="rtl"] .collection-page .space-x-2 > * + * {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+</style>
